@@ -29,7 +29,7 @@ R45 = rot(h5,q5); R56 = rot(h6,q6); R67 = rot(h7,q7); R7T = eye(3);
 R02 = R01*R12; R03 = R02*R23; R04 = R03*R34; R05 = R04*R45; R06 = R05*R56;
 R07 = R06*R67; R0T = R07*R7T;
 
-A = [eye(3) zeros(3); hat(-R0T*r) eye(3)];
+A = [eye(3) zeros(3); hat(R0T*r) eye(3)];
 
 Adiff = zeros(6,6);
 
