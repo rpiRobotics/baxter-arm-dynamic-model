@@ -1,9 +1,23 @@
 function [MassInertia,Cq,F] = MCFgen_baxter(q,qdot,robot_const,V0)
 
+% Generates joint-sapce mass-inertia matrix, coriolis/centrifugal terms,
+% and friction terms for the Baxter rigid-joint dynamic model. The
+% Newton-Euler algorithm is used to generate these dyanmic terms.
+
 % inputs:
 % q: joint positions
-% robot_kin: robot parameters structure
-% V0: base veloicty
+% qdot: joint velocities
+% robot_const: robot structure (including dynamic parameters)
+% V0: base velocity 
+% 
+% outputs:
+% MassInertia: joint-space inertia matrix
+% Cq: centrifugal/coriolis terms (note: Cq = C(q,qdot)*qdot)
+% F: friction terms
+
+% Dynamic Model:
+% MassInertia*qddot + Cq + F = tau
+% where qddot is joint accelerations and tau is applied motor torques
 
 % Extract info from robot parameters structure
 h = robot_const.kin.H; 
