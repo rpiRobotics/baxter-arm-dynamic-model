@@ -40,7 +40,7 @@ r = 0.4318/2; % radius
 ht = 0.2794; % height
 Ic = [(0.5*m*(3*r^2 + ht^2)) 0 0; 0 (0.5*m*(3*r^2 + ht^2)) 0; ...
     0 0 0.5*m*r^2]; % cylinder model
-RTs = rotz(-42*pi/180); % end effector to object center rotation matrix
+RTs = rot([0;0;1],-42*pi/180); % end effector to object center rotation matrix
 PTs = RTs*[-0.28;0.35079;-0.06]; % end effector to object center vector
 ric_tip = PTs;
 Mc = [[Ic zeros(3)];[zeros(3) m*eye(3)] ]; % mass-inertia
