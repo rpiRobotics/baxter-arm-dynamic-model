@@ -126,7 +126,7 @@ for k = 1:7
         ylabel('Joint Position (rad)')
     end
     if k==1
-        legend('Position','Desired Position')
+        legend({'Position','Desired Position'})
     end
     title(['q',num2str(k)])
     
